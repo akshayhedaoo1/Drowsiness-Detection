@@ -1,3 +1,7 @@
+
+
+https://user-images.githubusercontent.com/84308415/145674929-7dd0bef8-717e-4a4f-a547-e3b6e4f1e4bf.mp4
+
 # Drowsiness-Detection
 
 In this model, we are finding whether the person is getting Drowsiness based on score we generated from CNN model. Model is trained on dataset having two classes, eyes are open or close. A pre-trained model is used for whether the feels sleepy or not.
