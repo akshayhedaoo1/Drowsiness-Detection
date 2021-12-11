@@ -1,9 +1,9 @@
-
-
-https://user-images.githubusercontent.com/84308415/145674929-7dd0bef8-717e-4a4f-a547-e3b6e4f1e4bf.mp4
-
 # Drowsiness-Detection
 
 In this model, we are finding whether the person is getting Drowsiness based on score we generated from CNN model. Model is trained on dataset having two classes, eyes are open or close. A pre-trained model is used for whether the feels sleepy or not.
 It generating score based on prediction, score will increase with eyes closed and decreased with eyes open. If the model reaches score equal or above 15, it rings an alarm.
 It is done with the help of OpenCV library. We are detecting face using Haar Cascade Model. Three Haar Cascadeb files are used for detecting face, left eye and right eye.
+
+
+![drowsing](https://user-images.githubusercontent.com/84308415/145674989-657192e9-f400-4b6d-b455-9722846df392.gif)
+
