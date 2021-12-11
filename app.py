@@ -7,15 +7,15 @@ import time
 import cv2
 
 mixer.init()
-sound = mixer.Sound(r'C:\Users\welcome\Data Science\Deep Learning\OpenCV\Drowsiness detection\alarm.wav')
+sound = mixer.Sound(r'Drowsiness detection\alarm.wav')
 
-face = cv2.CascadeClassifier(r"C:\Users\welcome\Data Science\Deep Learning\OpenCV\Drowsiness detection\haar cascade files\haarcascade_frontalface_alt.xml")
-leye = cv2.CascadeClassifier(r"C:\Users\welcome\Data Science\Deep Learning\OpenCV\Drowsiness detection\haar cascade files\haarcascade_lefteye_2splits.xml")
-reye = cv2.CascadeClassifier(r"C:\Users\welcome\Data Science\Deep Learning\OpenCV\Drowsiness detection\haar cascade files\haarcascade_righteye_2splits.xml")
+face = cv2.CascadeClassifier("Drowsiness detection\haar cascade files\haarcascade_frontalface_alt.xml")
+leye = cv2.CascadeClassifier("Drowsiness detection\haar cascade files\haarcascade_lefteye_2splits.xml")
+reye = cv2.CascadeClassifier("Drowsiness detection\haarcascade_righteye_2splits.xml")
 
 label = ['open', 'close']
-model = load_model(r"C:\Users\welcome\Data Science\Deep Learning\OpenCV\Drowsiness detection\models\cnnCat2.h5")
-path = r"C:\Users\welcome\Data Science\Deep Learning\OpenCV\Drowsiness detection"
+model = load_model("Drowsiness detection\models\cnnCat2.h5")
+path = "Drowsiness detection"
 font = cv2.FONT_HERSHEY_COMPLEX_SMALL
 count = 0
 score = 0
