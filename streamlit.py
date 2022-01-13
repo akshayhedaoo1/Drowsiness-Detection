@@ -15,13 +15,12 @@ class VideoTransformer(VideoTransformerBase):
 
     def __init__(self):
         
-        self.face = cv2.CascadeClassifier(r'/home/akshayhedaoo/Desktop/Drowsiness_Detection/haar cascade files/haarcascade_frontalface_alt.xml')
-        self.leye = cv2.CascadeClassifier(r'/home/akshayhedaoo/Desktop/Drowsiness_Detection/haar cascade files/haarcascade_lefteye_2splits.xml')
-        self.reye = cv2.CascadeClassifier(r'/home/akshayhedaoo/Desktop/Drowsiness_Detection/haar cascade files/haarcascade_righteye_2splits.xml')
+        self.face = cv2.CascadeClassifier(r'haar cascade files/haarcascade_frontalface_alt.xml')
+        self.leye = cv2.CascadeClassifier(r'haar cascade files/haarcascade_lefteye_2splits.xml')
+        self.reye = cv2.CascadeClassifier(r'haar cascade files/haarcascade_righteye_2splits.xml')
 
-        self.model = load_model(r'/home/akshayhedaoo/Desktop/Drowsiness_Detection/Model.h5')
+        self.model = load_model('Model.h5')
         self.font = cv2.FONT_HERSHEY_PLAIN
-        self.path = r'/home/akshayhedaoo/Desktop/Drowsiness_Detection'
         self.score = 0
     
     def transform(self, frame):
@@ -29,7 +28,7 @@ class VideoTransformer(VideoTransformerBase):
         height, width = frame.shape[:2]
         
         mixer.init()
-        sound = mixer.Sound('/home/akshayhedaoo/Desktop/Drowsiness_Detection/alarm.wav')
+        sound = mixer.Sound('alarm.wav')
 
 
         gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
@@ -65,7 +64,6 @@ class VideoTransformer(VideoTransformerBase):
             self.score = 0
         cv2.putText(frame, 'Score :'  +str(self.score), (100, height), self.font, 1, (0, 0, 255), 1, cv2.LINE_8)       
         if (self.score > 15):
-            cv2.imwrite(os.path.join(self.path, 'image.jpg'), frame)
             try:
                 sound.play()
                 if self.score < 15:
@@ -76,6 +74,5 @@ class VideoTransformer(VideoTransformerBase):
                 pass
             cv2.rectangle(frame, (0,0), (width, height), (0,0, 255), 5)
         return frame
-
-
+  
 webrtc_streamer(key="example", video_transformer_factory=VideoTransformer)
